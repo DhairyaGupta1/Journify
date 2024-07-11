@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 
+const mongoURL =
+  "mongodb+srv://aakritimehrotra2022:AAKRITI%408oct@cluster0.gnp0cxr.mongodb.net/newDb?retryWrites=true&w=majority&appName=Cluster0/";
+
 mongoose
-  .connect(import.meta.env.VITE_MONGOURI)
+  .connect(mongoURL)
   .then(() => {
     console.log("connected");
   })
@@ -64,6 +67,10 @@ const FlightSchema = new mongoose.Schema({
     ref: "Airline",
     required: true,
   },
+  flightNo: {
+    type: String,
+    required: true,
+  },
   start: {
     type: String,
     required: true,
@@ -83,6 +90,10 @@ const FlightSchema = new mongoose.Schema({
   fare: {
     type: Number,
     required: true,
+  },
+  approved: {
+    type: Boolean,
+    default: false,
   },
 });
 
