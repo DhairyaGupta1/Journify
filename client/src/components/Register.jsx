@@ -11,7 +11,7 @@ const Register = ({setIsLogin}) => {
   }
   return (
     <form className="authForm">
-        <h2>Register</h2>
+        <h2>Register Here!</h2>
         <div className="form-floating mb-3 authFormInputs">
             <input type="text" className="form-control" id="floatingInput" placeholder="username"
                                                        onChange={(e)=> setUsername(e.target.value)} />

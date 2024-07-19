@@ -29,7 +29,7 @@
 .authForm h2{
     margin-bottom: 20px;
     font-family: 'Poppins', sans-serif;
-    color: rgb(0, 79, 135);
+    color: rgb(0, 58, 99);
     font-size: 1.8rem;
 }
 .authFormInputs {
@@ -39,7 +39,7 @@
 
 .authFormInputs label{
     color: rgb(0, 61, 101);
-    /* padding: 0; */
+   
 }
 .authFormInputs input{
     color: rgb(0, 61, 101);
@@ -47,7 +47,7 @@
     outline: none;
     background-color: rgba(231, 235, 235, 0);
     border: 1px solid #9dc1d975;
-    /* padding: 0; */
+    
 }
 .authForm select {
     color: rgb(0, 61, 101);
