@@ -5,7 +5,7 @@
 }
 
 .allFlightsPage h1{
-    color: rgb(73, 111, 138);
+    color: rgb(0, 74, 128);
     margin-left: 3vw;
 }
 
@@ -23,12 +23,13 @@
 
 .allFlights .allFlights-Flight{
 
-    background-color: rgba(237, 239, 241, 0.212);
+    background-color: rgba(164, 165, 165, 0.212);
     width: 90%;
     margin-left: 5%;
     padding: 3vh 2vw;
     border-radius: 0.7rem;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border:1px solid black;
+    box-shadow: rgba(218, 218, 218, 0.2) 0px 8px 24px;
 
 }
 .allFlights .allFlights-Flight:hover{

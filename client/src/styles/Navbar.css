@@ -10,11 +10,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 3%;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(64, 64, 80, 0.2) 0px 7px 29px 0px;
 }
 
 .navbar h3{
-    color: aliceblue;
+    color: rgb(229, 243, 255);
 }
 
 .nav-options{
@@ -30,5 +30,5 @@
 }
 
 .nav-options p:hover{
-    color: aliceblue;
+    color: rgb(196, 196, 196);
 }
