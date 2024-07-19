@@ -17,7 +17,7 @@ app.use(cors());
 const PORT = 6001;
 mongoose
   .connect(
-    "mongodb+srv://aakritimehrotra2022:AAKRITI%408oct@cluster0.gnp0cxr.mongodb.net/newDb?retryWrites=true&w=majority&appName=Cluster0/",
+    process.env.MONGOURI
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
