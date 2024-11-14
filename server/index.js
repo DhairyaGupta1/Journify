@@ -17,7 +17,7 @@ app.use(cors());
 const PORT = 6001;
 mongoose
   .connect(
-    process.env.MONGOURI
+    "mongodb+srv://aakritimehrotra2022:AAKRITI%408oct@cluster0.qmt1szv.mongodb.net/",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,

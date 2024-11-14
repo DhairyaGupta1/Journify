@@ -21,6 +21,7 @@ const Navbar = () => {
 
                 <div className="nav-options" >
                     <p onClick={()=>navigate('/')}>Home</p>
+                    <p onClick={()=>navigate('/chat')}>ChatBot</p>
                     <p onClick={()=>navigate('/auth')}>Login</p>
                 </div>
             
