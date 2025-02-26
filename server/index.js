@@ -17,7 +17,7 @@ app.use(cors());
 const PORT = 27017;
 mongoose
   .connect(
-    "mongodb+srv://dhairya:dhairya@userlogin.02acz.mongodb.net/",
+    "mongodb+srv://yourMongoURI",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
