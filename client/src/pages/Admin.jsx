@@ -13,7 +13,6 @@ const Admin = () => {
 
 
   useEffect(()=>{
-
     fetchData();
   }, [])
 
