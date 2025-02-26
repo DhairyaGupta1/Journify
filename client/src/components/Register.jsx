@@ -24,7 +24,7 @@ const Register = ({ setIsLogin }) => {
   };
 
   const generatePasswordSuggestions = (input) => {
-    if (input.length < 5) return ["Password length should be minimum 8 characters"];
+    if (input.length < 8) return ["Password length should be minimum 8 characters"];
     const suggestions = [
       `${input}@123`,
       `${input}!2024`,
@@ -32,7 +32,7 @@ const Register = ({ setIsLogin }) => {
       `${input}$safe`,
       `${input}_2024!`,
     ];
-    return shuffleArray(suggestions).slice(0, 3);
+    return shuffleArray(suggestions).slice(0, 0);
   };
 
   const handleUsernameChange = (e) => {
@@ -53,7 +53,7 @@ const Register = ({ setIsLogin }) => {
   };
 
   return (
-    <form style={{ maxWidth: '400px', margin: 'auto' }} onSubmit={handleRegister}>
+    <form style={{minWidth: '60vh', maxWidth: '400px', margin: 'auto' }} onSubmit={handleRegister}>
       <h2>Register Here!</h2>
 
       <div style={{ marginBottom: '30px', position: 'relative' }}>
@@ -66,7 +66,7 @@ const Register = ({ setIsLogin }) => {
           style={{ width: '100%', padding: '10px' }}
         />
         {usernameSuggestions.length > 0 && (
-          <div style={{ fontSize: '0.9em', color: '#FF0000', marginTop: '5px', paddingLeft: '10px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          <div style={{ fontSize: '0.9em', color: '#0059b8', marginTop: '5px', paddingLeft: '10px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             Suggestions: {usernameSuggestions.join(', ')}
           </div>
         )}
@@ -102,7 +102,7 @@ const Register = ({ setIsLogin }) => {
         className="form-select form-select-lg mb-3" 
         aria-label="User type selection"
         onChange={(e) => setUsertype(e.target.value)}
-        style={{ width: '100%', padding: '10px', marginBottom: '30px' }}
+        style={{ width: '100%', padding: '10px', marginBottom: '30px', fontSize: '1.1rem'}}
       >
         <option value="">User type</option>
         <option value="admin">Admin</option>

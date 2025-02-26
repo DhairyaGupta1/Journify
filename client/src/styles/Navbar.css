@@ -5,7 +5,7 @@
     position: fixed;
     top: 0vh;
     z-index: 10;
-    background-color: rgb(28, 82, 126) !important;
+    background: linear-gradient(145deg, rgb(205, 227, 249) 0%, rgb(232, 239, 243) 55%, rgb(213, 189, 222) 100%) !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,21 +14,25 @@
 }
 
 .navbar h3{
-    color: rgb(229, 243, 255);
+    color: #2404a2;
 }
 
 .nav-options{
     display: flex;
     gap: 20px;
+    
 }
 
 .nav-options p{
     margin: 0;
-    color: rgb(209, 210, 211);
+    color: #055791;
     text-decoration: none;
     cursor: pointer;
+    transition: transform 100ms ease;
+    transform: scale(1);
 }
 
 .nav-options p:hover{
-    color: rgb(196, 196, 196);
+    text-decoration: underline;
+    transform: scale(1.1);
 }

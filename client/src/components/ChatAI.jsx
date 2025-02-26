@@ -1,18 +1,29 @@
 import React, { useState } from 'react';
 import stringSimilarity from 'string-similarity';
-import "../styles/ChatAI.css"
-const questions = [
-  "How to register on the platform?",
-  "How to book a flight?",
-  "How to cancel a booking?",
-  "How to check-in online?",
-  "What is the baggage allowance?",
-  "How to change my flight?",
-  "How to contact support?",
-  "What payment methods are accepted?",
-  "How to get a refund?",
-  "How to add extra baggage?"
-];
+import "../styles/ChatAI.css";
+
+import Footer from './Footer';
+
+const questionMappings = {
+  "register": "How to register on the platform?",
+  "sign up": "How to register on the platform?",
+  "create account": "How to register on the platform?",
+  "book flight": "How to book a flight?",
+  "flight booking": "How to book a flight?",
+  "cancel flight": "How to cancel a booking?",
+  "cancel my booking": "How to cancel a booking?",
+  "online check-in": "How to check-in online?",
+  "baggage rules": "What is the baggage allowance?",
+  "luggage limit": "What is the baggage allowance?",
+  "change flight": "How to change my flight?",
+  "modify booking": "How to change my flight?",
+  "contact support": "How to contact support?",
+  "customer service": "How to contact support?",
+  "payment options": "What payment methods are accepted?",
+  "refund policy": "How to get a refund?",
+  "extra baggage": "How to add extra baggage?",
+  "buy more luggage": "How to add extra baggage?"
+};
 
 const responses = {
   "How to register on the platform?": "To register, go to the signup page, enter your email, create a password, and follow the instructions. Once confirmed, you’ll have full access to our features.",
@@ -25,9 +36,7 @@ const responses = {
   "What payment methods are accepted?": "We accept major credit and debit cards, online banking, and select mobile wallets. Payment methods may vary based on your location.",
   "How to get a refund?": "For refunds, go to My Bookings, select your booking, and click Request Refund. Refunds are processed according to our cancellation policy.",
   "How to add extra baggage?": "You can add extra baggage during booking or through Manage Booking. Select your flight, add baggage, and pay the additional fee."
-  
 };
-
 
 const ChatAI = () => {
   const [userInput, setUserInput] = useState('');
@@ -39,37 +48,49 @@ const ChatAI = () => {
   };
 
   const handleAskQuestion = () => {
+    const trimmedInput = userInput.trim().toLowerCase();
     let response;
-    if (questions.includes(userInput)) {
-      response = responses[userInput];
+    
+    if (questionMappings[trimmedInput]) {
+      response = responses[questionMappings[trimmedInput]];
       setSuggestedQuestion(null);
-    } else if (userInput.toLowerCase() === 'yes' && suggestedQuestion) {
+    } else if (trimmedInput === 'yes' && suggestedQuestion) {
       response = responses[suggestedQuestion];
       setSuggestedQuestion(null);
     } else {
-      const matches = stringSimilarity.findBestMatch(userInput, questions);
+      const matches = stringSimilarity.findBestMatch(trimmedInput, Object.keys(questionMappings));
       const bestMatch = matches.bestMatch;
 
       if (bestMatch.rating > 0.7) {
-        response = `Did you mean:  ${bestMatch.target}`;
-        setSuggestedQuestion(bestMatch.target);
+        const mappedQuestion = questionMappings[bestMatch.target];
+        response = `Did you mean: ${mappedQuestion}?`;
+        setSuggestedQuestion(mappedQuestion);
       } else {
-        response = "I'm sorry, I didn't understand that question.";
+        response = (
+          <>
+            <p>I'm sorry, I didn't understand that question. Here are some questions you can ask:</p>
+            <ul>
+              {Object.values(questionMappings).filter((q, index, self) => self.indexOf(q) === index).map((q, index) => (
+                <li key={index}>{q}</li>
+              ))}
+            </ul>
+          </>
+        );
         setSuggestedQuestion(null);
       }
     }
 
-
     setChatHistory(prevHistory => [
       ...prevHistory,
-      { sender: 'user', text: userInput },
+      { sender: 'user', text: trimmedInput },
       { sender: 'bot', text: response }
     ]);
-    setUserInput(''); 
+    setUserInput('');
   };
 
   return (
-    <div className="chatbot-container">
+      <div className='overlay'>
+        <div style={{transform: "scale(0.8)", marginTop:"1.5rem", zIndex: "3"}}className="chatbot-container">
       <h1>Flight Booking Chatbot</h1>
       <div className="chat-history">
         {chatHistory.map((message, index) => (
@@ -78,16 +99,19 @@ const ChatAI = () => {
           </div>
         ))}
       </div>
-      <input 
+        <div style={{display: "flex", flexDirection: "row", gap: "10px"}}>
+        <input 
         type="text" 
         value={userInput} 
         onChange={handleInputChange} 
         placeholder="Ask a question about booking flights..." 
       />
       <button onClick={handleAskQuestion}>Send</button>
+        </div>
+    </div>
+    <Footer />
     </div>
   );
-  
-}
+};
 
-export default ChatAI
+export default ChatAI;

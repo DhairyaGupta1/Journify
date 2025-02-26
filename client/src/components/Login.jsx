@@ -1,6 +1,8 @@
 
 import React, { useContext } from 'react'
 import { GeneralContext } from '../context/GeneralContext';
+import "../styles/ChatAI.css";
+import Footer from './Footer';
 
 const Login = ({setIsLogin}) => {
 
@@ -11,7 +13,8 @@ const Login = ({setIsLogin}) => {
     await login();
   }
   return (
-    <form className="authForm">
+    <div className='overlay' style={{display: "flex", justifyContent: "space-between", alignItems: "center", flexDirection: "column"}}>
+      <form className="authForm"style={{marginTop: "10%"}}>
         <h2>Login</h2>
         <div className="form-floating mb-3 authFormInputs">
             <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" 
@@ -27,6 +30,8 @@ const Login = ({setIsLogin}) => {
 
         <p>Not registered? <span onClick={()=> setIsLogin(false)}>Register</span></p>
     </form>
+    <Footer />
+    </div>
   )
 }
 export default Login

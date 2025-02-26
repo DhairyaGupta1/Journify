@@ -17,7 +17,7 @@ const Navbar = () => {
         {!usertype ? 
         
             <>
-                <h3 >Journify</h3>
+                <h3><a href='/' style={{textDecoration: "none", color: "inherit"}}>JOURNIFY</a></h3>
 
                 <div className="nav-options" >
                     <p onClick={()=>navigate('/')}>Home</p>

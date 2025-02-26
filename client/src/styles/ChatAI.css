@@ -3,28 +3,43 @@
     margin: 0 auto;
     padding: 20px;
     margin-top: 120px;
-    background-color: #f9f9f9;
+    background: rgba(249, 249, 249, 0.6);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
+    min-height: 800px;
+    backdrop-filter: blur(10px);
+}
 
-    min-height: 800px ;
-  }
+
+    .overlay{
+      width: 100%;
+      height: 100vh;
+      background-image: linear-gradient(45deg, rgba(36, 59, 69, 0.489),rgba(0, 0, 0, 0.493)), url('../assets/HomeBG1.png');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow-y: auto;
+      -ms-overflow-style: none; 
+      scrollbar-width: none;    
+    }
+
   
-  h1 {
+  
+  h1,h2 {
     text-align: center;
-    color: #333;
+    color: #0059b8;
   }
   
   .chat-history {
     flex-grow: 1;
-    overflow-y: auto;
     margin-bottom: 15px;
     padding: 10px;
     background-color: #fff;
     border-radius: 8px;
+    overflow-y: auto;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
     height:auto;
   }
@@ -60,7 +75,6 @@
   }
   
   button {
-    width: 100%;
     padding: 10px;
     margin-top: 10px;
     background-color: #1c527e;

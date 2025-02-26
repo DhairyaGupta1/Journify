@@ -89,7 +89,7 @@ const LandingPage = () => {
 
 
           <div className="landingHero-title">
-          <h1 className="banner-h1">Explore a World of Unforgettable Flights</h1>
+          <h1 className="banner-h1" style={{textAlign: "left"}}>Explore a World of Unforgettable Flights</h1>
           <p className="banner-p">Fuel your wanderlust and discover breathtaking destinations with our curated flight experiences.  Embark on an adventure that ignites your senses and creates memories that last a lifetime.</p>
 
           </div>
@@ -155,9 +155,8 @@ const LandingPage = () => {
                     :
                     
                     ""}
-                    <div>
-                      <button className="btn btn-primary" onClick={fetchFlights}>Search</button>
-                    </div>
+                      <button style= {{margin: "0px", maxHeight: "58px"}}className="btn btn-primary" onClick={fetchFlights}>Search</button>
+
 
                   </div>
                   <p>{error}</p>
