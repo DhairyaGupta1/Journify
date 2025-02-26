@@ -21,7 +21,7 @@ const GeneralContextProvider = ({children}) => {
   const login = async () =>{
     try{
       const loginInputs = {email, password}
-        await axios.post('http://localhost:6001/login', loginInputs)
+        await axios.post('http://localhost:27017/login', loginInputs)
         .then( async (res)=>{
 
             localStorage.setItem('userId', res.data._id);
@@ -37,7 +37,7 @@ const GeneralContextProvider = ({children}) => {
               navigate('/flight-admin');
             }
         }).catch((err) =>{
-            alert("login failed!!");
+            alert("login failed!!" + err);
             console.log(err);
         });
 
@@ -48,7 +48,7 @@ const GeneralContextProvider = ({children}) => {
   
   const register = async () =>{
     try{
-        await axios.post('http://localhost:6001/register', inputs)
+        await axios.post('http://localhost:27017/register', inputs)
         .then( async (res)=>{
             localStorage.setItem('userId', res.data._id);
             localStorage.setItem('userType', res.data.usertype);

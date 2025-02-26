@@ -14,10 +14,10 @@ app.use(cors());
 
 // mongoose setup
 
-const PORT = 6001;
+const PORT = 27017;
 mongoose
   .connect(
-    "mongodb+srv://aakritimehrotra2022:AAKRITI%408oct@cluster0.qmt1szv.mongodb.net/",
+    "mongodb+srv://dhairya:dhairya@userlogin.02acz.mongodb.net/",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -25,7 +25,7 @@ mongoose
   )
   .then(() => {
     // All the client-server activites
-
+    console.log("connected!");
     app.post("/register", async (req, res) => {
       const { username, email, usertype, password } = req.body;
       let approval = "approved";

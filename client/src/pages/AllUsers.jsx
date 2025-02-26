@@ -12,7 +12,7 @@ const AllUsers = () => {
   },[]);
 
   const fetchUsers = async () =>{
-    await axios.get('http://localhost:6001/fetch-users').then(
+    await axios.get('http://localhost:27017/fetch-users').then(
       (response) =>{
         setUsers(response.data);
       }

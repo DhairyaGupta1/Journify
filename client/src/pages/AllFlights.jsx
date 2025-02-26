@@ -9,7 +9,7 @@ const AllFlights = () => {
   
     
     const fetchFlights = async () =>{
-      await axios.get('http://localhost:6001/fetch-flights').then(
+      await axios.get('http://localhost:27017/fetch-flights').then(
         (response)=>{
           setFlights(response.data);
           console.log(response.data)

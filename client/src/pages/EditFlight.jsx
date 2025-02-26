@@ -26,7 +26,7 @@ const EditFlight = () => {
     }, [])
   
     const fetchFlightData = async () =>{
-      await axios.get(`http://localhost:6001/fetch-flight/${id}`).then(
+      await axios.get(`http://localhost:27017/fetch-flight/${id}`).then(
         (response) =>{
           console.log(response.data);
           setFlightName(response.data.flightName);
@@ -63,7 +63,7 @@ const EditFlight = () => {
       const inputs = {_id: id,flightName, flightId, origin, destination, 
         departureTime: startTime, arrivalTime, basePrice, totalSeats};
   
-      await axios.put('http://localhost:6001/update-flight', inputs).then(
+      await axios.put('http://localhost:27017/update-flight', inputs).then(
         async (response)=>{
           alert('Flight updated successfully!!');
           setFlightName('');
